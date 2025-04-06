@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { register } from "./Api";
+import React, { useState } from 'react';
+import { login } from './Api';
 import formStyles from './styles/formStyles';
 
-const Register = () => {
+const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,23 +12,25 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
-      await register(form);
-      alert("User registered successfully");
-    } catch (error) {
-      alert("Error registering user");
+      const response = await login(form);
+      localStorage.setItem('token', response.data.token);
+      alert('Login successful!');
+    } catch (err) {
+      setError('Invalid email or password');
     }
   };
 
   return (
     <div style={formStyles.container}>
-      <h2>Sign Up</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit} style={formStyles.form}>
         <input
-          name="email"
           type="email"
-          onChange={handleChange}
+          name="email"
           value={form.email}
+          onChange={handleChange}
           placeholder="Email"
           style={formStyles.input}
           required
@@ -35,18 +38,17 @@ const Register = () => {
         <input
           type="password"
           name="password"
-          onChange={handleChange}
           value={form.password}
+          onChange={handleChange}
           placeholder="Password"
           style={formStyles.input}
           required
         />
-        <button type="submit" style={{ ...formStyles.button, backgroundColor: '#28a745' }}>
-          Register
-        </button>
+        {error && <p style={formStyles.error}>{error}</p>}
+        <button type="submit" style={formStyles.button}>Login</button>
       </form>
     </div>
   );
 };
 
-export default Register;
+export default Login;
