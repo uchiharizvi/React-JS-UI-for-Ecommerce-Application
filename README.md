@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# 🛍️ Ecart Web UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the React frontend for the **Ecart** application. It currently supports **user registration**, and will soon include **login**, **product browsing**, **wishlist**, **cart**, and more.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+✅ User Registration (with email & password)  
+✅ API integration with backend (Spring Boot)  
+✅ Centralized routing using React Router  
+✅ Clean, centered UI with responsive form layout  
+✅ Home page with navigation options for Sign Up / Login
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧰 Tech Stack
 
-### `npm test`
+- **React.js**
+- **React Router DOM**
+- **Axios** for API calls
+- **Java Spring Boot** (backend, not included here)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📦 Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Make sure you have `node` and `npm` installed. Then run:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/your-username/ecart-web-ui.git
+cd ecart-web-ui
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+▶️ Running the App
+`npm start`
+The app will start on:
+📍 http://localhost:3000
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Make sure your Spring Boot backend is running on http://localhost:8081.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+📁 Project Structure
+src/
+├── Api.js              # Axios config and API functions
+├── App.js              # Main app with routing
+├── Home.js             # Home page with Sign Up / Login
+├── Register.js         # Registration form component
+├── index.js            # Entry point
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🔗 Backend API
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The frontend expects the following endpoint from the backend:
+	•	POST /api/v1/auth/register – for registering a new user
+Example request payload:
+`{
+  "email": "test@example.com",
+  "password": "secure123"
+}`
 
-## Learn More
+🙌 Author
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built by Kavish Rizvi
+Feel free to fork, contribute, or star!
