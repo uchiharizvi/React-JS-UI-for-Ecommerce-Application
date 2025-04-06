@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { register } from "./Api";
 
 const Register = () => {
-    const [form, setForm] = useState({username: '', password: ''});
+    const [form, setForm] = useState({email: '', password: ''});
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value});
     };
@@ -17,20 +17,59 @@ const Register = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-        <input name="username" onChange={handleChange} value={form.username} placeholder="Username"/>
-        <input type = "password" name="password" onChange={handleChange} value={form.password} placeholder="Password"/>
-        <button type="submit">Register</button>
-        </form>
-    );
+        <div style={styles.container}>
+          <h2>Sign Up</h2>
+          <form onSubmit={handleSubmit} style={styles.form}>
+            <input
+              name="email"
+              type="email"
+              onChange={handleChange}
+              value={form.email}
+              placeholder="Email"
+              style={styles.input}
+            />
+            <input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              value={form.password}
+              placeholder="Password"
+              style={styles.input}
+            />
+            <button type="submit" style={styles.button}>Register</button>
+          </form>
+        </div>
+      );
+    };
+
+    const styles = {
+  container: {
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '1rem',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+    width: '300px',
+  },
+  input: {
+    padding: '12px',
+    fontSize: '1rem',
+  },
+  button: {
+    padding: '12px',
+    fontSize: '1rem',
+    backgroundColor: '#28a745',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+  }
 };
+
 export default Register;
-// This code defines a React component for a registration form.
-// It uses the `useState` hook to manage form state and handles form submission.
-// The `handleChange` function updates the state when the input values change.
-// The `handleSubmit` function sends the form data to the server using the `register` function imported from `Api.js`.
-// If the registration is successful, it alerts the user.
-// If there's an error, it alerts the user about the error.
-// The form includes two input fields for username and password, and a submit button.
-// The `Register` component is exported for use in other parts of the application.
-// This code defines a React component for a registration form. 

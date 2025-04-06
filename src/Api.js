@@ -1,6 +1,8 @@
 import axios from "axios";
-const API = axios.create({
-  baseURL: "http://localhost:8081/api/v1/auth",
-});
-export const register = (user) => API.post("/register", user);
-export const login = (credentials) => API.post("/login", user);
+
+const API_BASE_URL = 'http://localhost:8081/api/v1/auth';
+
+export const register = (user) => {
+    return axios.post(`${API_BASE_URL}/register`, user);
+}
+// export const login = (credentials) => API.post("/login", user);
