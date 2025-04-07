@@ -5,11 +5,22 @@ import logo from './assets/logo.png'; // adjust path
 const Navbar = () => {
   return (
     <div style={styles.nav}>
+      {/* Left side: Logo + App Name */}
       <div style={styles.logoSection}>
         <img src={logo} alt="Ecart Logo" style={styles.logo} />
-        <h2 style={styles.title}>Ecart App</h2>
+        <div style={styles.divider} />
+        <h2 style={styles.title}>Toobify Designs</h2>
       </div>
-      <div style={styles.links}>
+
+      {/* Middle: Navigation Links */}
+      <div style={styles.navLinks}>
+        <Link to="/" style={styles.link}>Home</Link>
+        <Link to="/about" style={styles.link}>About Us</Link>
+        <Link to="/contact" style={styles.link}>Contact Us</Link>
+      </div>
+
+      {/* Right side: Auth Links */}
+      <div style={styles.authLinks}>
         <Link to="/register" style={styles.link}>Sign Up</Link>
         <Link to="/login" style={styles.link}>Login</Link>
       </div>
@@ -34,6 +45,13 @@ const styles = {
     alignItems: 'center',
     gap: '10px',
   },
+  divider: {
+    width: '1px',
+    height: '30px',
+    backgroundColor: '#ccc',
+    marginLeft: '10px',
+    marginRight: '10px',
+  },
   logo: {
     height: '40px',
   },
@@ -42,9 +60,15 @@ const styles = {
     fontSize: '1.5rem',
     color: '#333',
   },
-  links: {
+  navLinks: {
     display: 'flex',
     gap: '20px',
+    alignItems: 'center',
+  },
+  authLinks: {
+    display: 'flex',
+    gap: '20px',
+    alignItems: 'center',
   },
   link: {
     textDecoration: 'none',

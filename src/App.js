@@ -4,6 +4,7 @@ import Register from './Register';
 import Home from './Home';
 import Login from './Login';
 import Navbar from './Navbar';
+import About from './AboutUs';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route path="/register" component={Register} />
                 <Route path="/login" component={Login} />
+                <Route path="/about" component={About} />
             </Switch>
         </Router>
     );
